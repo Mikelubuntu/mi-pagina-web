@@ -61,6 +61,11 @@
     
     <button type="submit">Enviar</button>
   </form>
+  
+  <!-- Mensaje de confirmación (oculto por defecto) -->
+  <p id="mensajeConfirmacion" style="display: none; color: green; font-weight: bold; margin-top: 10px;">
+    ✅ Tu mensaje ha sido enviado con éxito.
+  </p>
 </section>
 
 <script>
@@ -77,8 +82,19 @@
     
     // Abrir el cliente de correo
     window.location.href = mailtoLink;
+
+    // Mostrar mensaje de confirmación después de 2 segundos
+    setTimeout(() => {
+      document.getElementById("mensajeConfirmacion").style.display = "block";
+    }, 2000);
+
+    // Opcional: Vaciar los campos del formulario
+    setTimeout(() => {
+      document.getElementById("contactoForm").reset();
+    }, 2500);
   });
 </script>
+
 
 
   <!-- Pie de página -->
